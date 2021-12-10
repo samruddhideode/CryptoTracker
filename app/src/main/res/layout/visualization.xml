@@ -6,18 +6,68 @@
     android:layout_height="match_parent"
     tools:context=".Visualization">
 
-    <com.github.mikephil.charting.charts.LineChart
-        android:id="@+id/lineChart"
+    <com.github.mikephil.charting.charts.CandleStickChart
+        android:id="@+id/candleStick"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="600dp"
+        android:layout_marginTop="90dp" />
 
-    <Button
-        android:id="@+id/homeButton"
+    <RadioGroup
+        android:id="@+id/coins"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Back"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"/>
+        android:orientation="horizontal">
+        <RadioButton
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="BTCUSD"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="ETHUSD"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="DOGEUSD"
+            android:textStyle="bold"/>
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/time"
+        android:layout_below="@+id/coins"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <RadioButton
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="1day" />
+
+        <RadioButton
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="1hr" />
+
+        <RadioButton
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="1m"/>
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/apply"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/time"
+        android:layout_below="@+id/coins"
+        android:text="Apply" />
 
 
 </RelativeLayout>
