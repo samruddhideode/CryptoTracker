@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".MainActivity">
+
+    <!--edit text for searching our currency-->
+
+    <!--recycler view for displaying the list of currencies-->
+    <EditText
+        android:id="@+id/idEdtCurrency"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:focusable="auto"
+        android:hint="Search Currency"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/idRVcurrency"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/idEdtCurrency"
+        tools:listitem="@layout/currency_rv_item" />
+
+    <!--progress bar for loading indicator-->
+
+
+    <Button
+        android:id="@+id/trends"
+        android:layout_width="146dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="248dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginBottom="668dp"
+        android:text="See Trends" />
+
+</RelativeLayout>

@@ -7,39 +7,28 @@
     android:id="@+id/rootLayout"
     tools:context=".MainActivity" >
 
-    <!--    <EditText-->
-    <!--        android:id="@+id/search_bar"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:hint="Search Cryptocurrency"-->
-    <!--        android:textSize="20dp" />-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/RVcurrencies"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/black" />
+        android:background="@color/white"
+        android:layout_below="@id/search_bar"/>
     <!--        android:layout_below="@id/search_bar"-->
 
-    <ProgressBar
-        android:id="@+id/progress_bar"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/search_bar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:visibility="gone"/>
+        android:hint="Search Cryptocurrency"
+        android:textSize="20dp"
+        android:layout_below="@id/trendsButton"/>
 
     <Button
         android:id="@+id/trendsButton"
-        android:layout_width="136dp"
+        android:layout_width="wrap_content"
         android:layout_height="38dp"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="136dp"
-        android:text="See Trends"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.952" />
+        android:text="See Crypto Trends"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

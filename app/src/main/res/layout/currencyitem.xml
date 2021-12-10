@@ -4,158 +4,102 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_margin="4dp"
+    android:layout_margin="7dp"
     app:cardCornerRadius="10dp">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <RelativeLayout
         android:id="@+id/currencyitem"
         android:layout_width="match_parent"
-        android:layout_height="180dp">
-
-
-        <TextView
-            android:id="@+id/currencyRate"
-            android:layout_width="84dp"
-            android:layout_height="33dp"
-            android:background="@color/white"
-            android:padding="3dp"
-            android:text=""
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/currencyName"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.012" />
+        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/currencySymbol"
-            android:layout_width="400dp"
-            android:layout_height="38dp"
-            android:layout_marginTop="44dp"
-            android:layout_marginEnd="10dp"
+            android:layout_width="270dp"
+            android:layout_height="wrap_content"
             android:background="@color/white"
             android:padding="3dp"
             android:text=""
-            android:textColor="@color/black"
-            android:textColorHint="@color/black"
             android:textSize="23dp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/currencyRate"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/currencyRate"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/currencySymbol"
+            android:background="@color/white"
+            android:padding="3dp"
+            android:text=""
+            android:textSize="18dp"
+            android:textAlignment="center"/>
+
 
         <TextView
             android:id="@+id/currencyName"
-            android:layout_width="209dp"
-            android:layout_height="33dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/currencySymbol"
             android:background="@color/white"
             android:padding="3dp"
             android:text=""
-            android:textColor="@color/black"
-            android:textColorHint="@color/black"
-            android:textSize="24dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.013" />
+            android:textSize="23dp" />
+
+
+        <TextView
+            android:layout_marginLeft="7dp"
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="1h"
+            android:textAlignment="center"
+            android:layout_below="@id/currencyName"/>
 
         <TextView
             android:id="@+id/oneHour"
-            android:layout_width="58dp"
-            android:layout_height="24dp"
-            android:layout_marginEnd="292dp"
-            android:textAlignment="textStart"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.596" />
-
-        <TextView
-            android:id="@+id/twentyfourHours"
-            android:layout_width="58dp"
-            android:layout_height="27dp"
-            android:textAlignment="center"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.568"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.607" />
-
-        <TextView
-            android:id="@+id/sevenDays"
-            android:layout_width="72dp"
-            android:layout_height="24dp"
-            android:textAlignment="center"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.596">
-
-        </TextView>
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="50dp"
-            android:layout_height="24dp"
-            android:text="1h"
-            android:textAlignment="center"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.596" />
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/currencyName"
+            android:layout_marginLeft="7dp"
+            android:text=""
+            android:textAlignment="center"/>
 
         <TextView
             android:id="@+id/textView2"
-            android:layout_width="50dp"
-            android:layout_height="24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
             android:text="24h"
-            android:textAlignment="center"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.413"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.596" />
+            android:layout_below="@id/currencyName"
+            android:layout_toRightOf="@id/oneHour"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:id="@+id/twentyfourHours"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/currencyName"
+            android:layout_toRightOf="@id/oneHour"
+            android:text=""
+            android:textAlignment="center" />
 
         <TextView
             android:id="@+id/textView3"
-            android:layout_width="50dp"
-            android:layout_height="24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
             android:text="7d"
-            android:textAlignment="center"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.796"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.596" />
+            android:layout_below="@id/currencyName"
+            android:layout_toRightOf="@id/twentyfourHours"
+            android:textAlignment="center"/>
 
         <TextView
-            android:id="@+id/textView4"
-            android:layout_width="43dp"
-            android:layout_height="33dp"
-            android:text="$"
-            android:textAlignment="textEnd"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.766"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.01" />
+            android:id="@+id/sevenDays"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/currencyName"
+            android:layout_toRightOf="@id/twentyfourHours"
+            android:text=""
+            android:textAlignment="center" />
 
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
 
 
 </androidx.cardview.widget.CardView>

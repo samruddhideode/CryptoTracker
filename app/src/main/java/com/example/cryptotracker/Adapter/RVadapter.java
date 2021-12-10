@@ -74,7 +74,7 @@ public class RVadapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
 
         holderItem.currencyName.setText(currencyModal.getCurrencyName());
         holderItem.currencySymbol.setText(currencyModal.getCurrencySymbol());
-        holderItem.currencyRate.setText(String.valueOf(currencyModal.getQuote().getUSD().getPrice()));
+        holderItem.currencyRate.setText("$ "+String.valueOf(currencyModal.getQuote().getUSD().getPrice()));
         holderItem.oneHour.setText(String.valueOf(currencyModal.getQuote().getUSD().getChange1h())+" %");
         holderItem.twentyfourHours.setText(String.valueOf(currencyModal.getQuote().getUSD().getChange24h())+" %");
         holderItem.sevenDays.setText(String.valueOf(currencyModal.getQuote().getUSD().getChange7d())+" %");
