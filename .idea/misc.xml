@@ -3,10 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/Cryptotracker/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.24895833333333334" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/Cryptotracker/app/src/main/res/drawable/ic_baseline_refresh_24.xml" value="0.1" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/Cryptotracker/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/Cryptotracker/app/src/main/res/layout/activity_main.xml" value="0.2222222222222222" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/Cryptotracker/app/src/main/res/layout/currencyitem.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/Cryptotracker/app/src/main/res/layout/layout.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/Cryptotracker/app/src/main/res/layout/visualization.xml" value="0.264" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/Cryptotracker/app/src/main/res/menu/super_menu.xml" value="0.2" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/Cryptotracker2/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/Cryptotracker2/app/src/main/res/layout/currencyitem.xml" value="0.4" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/Cryptotracker2/app/src/main/res/layout/visualization.xml" value="0.24010416666666667" />

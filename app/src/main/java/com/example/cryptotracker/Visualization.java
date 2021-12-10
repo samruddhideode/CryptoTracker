@@ -112,9 +112,8 @@ public class Visualization extends AppCompatActivity {
                     candleStickChart.requestDisallowInterceptTouchEvent(true);
 
                     XAxis xAxis = candleStickChart.getXAxis();
-
-                    xAxis.setDrawGridLines(false);// disable x axis grid lines
-                    xAxis.setDrawLabels(false);
+                    xAxis.setDrawGridLines(true);// disable x axis grid lines
+                    xAxis.setDrawLabels(true);
                     rightAxis.setTextColor(Color.BLACK);
                     yAxis.setDrawLabels(false);
                     xAxis.setGranularity(1f);
@@ -142,7 +141,7 @@ public class Visualization extends AppCompatActivity {
                         yvalue.add(new CandleEntry(i, dataSet.get(i).get(2), dataSet.get(i).get(3), dataSet.get(i).get(1), dataSet.get(i).get(4)));
                     }
 
-                    //styling data layout
+                        //styling data layout
                         CandleDataSet set1 = new CandleDataSet(yvalue,"Dataset1");
                         set1.setColor(Color.rgb(80, 80, 80));
                         set1.setShadowColor(getResources().getColor(R.color.purple_200));
@@ -153,6 +152,7 @@ public class Visualization extends AppCompatActivity {
                         set1.setIncreasingPaintStyle(Paint.Style.FILL);
                         set1.setNeutralColor(Color.LTGRAY);
                         set1.setDrawValues(false);
+
 
                         //creating a data object with the dataset
                         CandleData data = new CandleData(set1);
