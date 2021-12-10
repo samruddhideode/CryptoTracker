@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,6 +29,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -43,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
     private RVadapter adapter;
     private RecyclerView recyclerView;
     private Button trendButton;
+    private EditText search_bar;
 
     Request request;
     RelativeLayout relativeLayout;
@@ -74,6 +78,35 @@ public class MainActivity extends AppCompatActivity {
         });
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         setupAdapter();
+
+        EditText search_bar = findViewById(R.id.search_bar);
+        search_bar.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                filter(s.toString());
+            }
+        });
+    }
+
+    private void filter(String text){
+        ArrayList<CurrencyModal> filteredList = new ArrayList<>();
+        for (CurrencyModal item: currencyModalArrayList){
+            if (item.getCurrencyName().toLowerCase().contains(text.toLowerCase()) ||
+                    item.getCurrencySymbol().toLowerCase().contains(text.toLowerCase())){
+                filteredList.add(item);
+            }
+        }
+        adapter.filterList(filteredList);
     }
 
     private void setupAdapter(){

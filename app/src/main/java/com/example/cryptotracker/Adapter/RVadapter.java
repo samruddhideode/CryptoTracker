@@ -100,4 +100,9 @@ public class RVadapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
         notifyDataSetChanged();
     }
 
+    public void filterList(ArrayList<CurrencyModal> filteredList){
+        this.currencyModalArrayList = filteredList;
+        notifyDataSetChanged();
+    }
+
 }
