@@ -1,25 +1,28 @@
 package com.example.cryptotracker.Model;
 
+import static java.sql.Types.NULL;
+
+import java.io.Serializable;
 import java.text.DecimalFormat;
 
-public class CurrencyModal {
+public class CurrencyModal implements Serializable {
     private static final DecimalFormat df = new DecimalFormat("0.00");
     private String name;
     private String symbol;
-    private double low_limit;
+    private double low_limit = NULL;
     public Quote quote;
 
     public Quote getQuote() {
         return quote;
     }
 
-    public class Quote{
+    public class Quote implements Serializable{
         public currency getUSD() {
             return USD;
         }
 
         public currency USD;
-        public class currency{
+        public class currency implements Serializable{
             double price;
             double percent_change_1h;
             double percent_change_24h;
@@ -66,9 +69,16 @@ public class CurrencyModal {
     }
 
 
-    public CurrencyModal(String currencyName, String currencySymbol, double currencyRate, double percent_change_1h, double percent_change_24h, double percent_change_7d) {
+    public CurrencyModal(String currencyName, String currencySymbol, double currencyRate, double percent_change_1h, double percent_change_24h, double percent_change_7d)
+    {
         this.name = currencyName;
         this.symbol = currencySymbol;
+    }
+
+    public double getLowerLimit() { return low_limit; }
+
+    public void setLowerLimit(double lower_limit) {
+        this.low_limit = lower_limit;
     }
 
     public String getCurrencyName() {

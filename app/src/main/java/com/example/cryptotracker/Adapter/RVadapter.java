@@ -6,16 +6,22 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.cryptotracker.CurrencyViewHolder;
 import com.example.cryptotracker.Interface.ILoadMore;
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import java.util.*;
+
+import java.io.Serializable;
 import java.lang.*;
 import androidx.annotation.NonNull;
 
+import com.example.cryptotracker.MainActivity;
 import com.example.cryptotracker.Model.CurrencyModal;
 import com.example.cryptotracker.R;
+import com.example.cryptotracker.SetAlert;
 
 import java.util.ArrayList;
 
@@ -74,11 +80,20 @@ public class RVadapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
 
         holderItem.currencyName.setText(currencyModal.getCurrencyName());
         holderItem.currencySymbol.setText(currencyModal.getCurrencySymbol());
-        holderItem.currencyRate.setText("$ "+String.valueOf(currencyModal.getQuote().getUSD().getPrice()));
+        holderItem.currencyRate.setText(String.valueOf(currencyModal.getQuote().getUSD().getPrice()));
         holderItem.oneHour.setText(String.valueOf(currencyModal.getQuote().getUSD().getChange1h())+" %");
         holderItem.twentyfourHours.setText(String.valueOf(currencyModal.getQuote().getUSD().getChange24h())+" %");
         holderItem.sevenDays.setText(String.valueOf(currencyModal.getQuote().getUSD().getChange7d())+" %");
 
+        holderItem.setAlert.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                System.out.println(currencyModal.getLowerLimit());
+                Intent explicit = new Intent(activity.getApplicationContext(), SetAlert.class);
+                explicit.putExtra("currency_modal", currencyModal); //passing the current currency object
+                activity.startActivity(explicit);
+            }
+        });
         holderItem.oneHour.setTextColor(String.valueOf(currencyModal.getQuote().getUSD().getChange1h()).contains("-")?
                 Color.parseColor("#FF0000"):Color.parseColor("#32CD32"));
         holderItem.twentyfourHours.setTextColor(String.valueOf(currencyModal.getQuote().getUSD().getChange24h()).contains("-")?

@@ -2,13 +2,12 @@ package com.example.cryptotracker;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Menu;
@@ -17,7 +16,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -26,13 +24,9 @@ import com.example.cryptotracker.Interface.ILoadMore;
 import com.example.cryptotracker.Model.CurrencyModal;
 
 import com.google.gson.Gson;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -51,18 +45,21 @@ public class MainActivity extends AppCompatActivity {
     private Button trendButton;
     private EditText search_bar;
 
+    Handler handler = new Handler();
+    Runnable runnable;
+    int delay = 60000;
+
     Request request;
     RelativeLayout relativeLayout;
     OkHttpClient client;
-
-    private EditText searchBar;
-    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Explicit intent
+        //Takes you to sister activity- Visualisation
         trendButton = findViewById(R.id.trendsButton);
         trendButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //Loads the first 30 coins into the recycler view
         recyclerView = (RecyclerView) findViewById(R.id.RVcurrencies);
         recyclerView.post(new Runnable() {
             @Override
@@ -82,7 +80,8 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         setupAdapter();
 
-        EditText search_bar = findViewById(R.id.search_bar);
+        //search functionality
+        search_bar = findViewById(R.id.search_bar);
         search_bar.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -99,8 +98,31 @@ public class MainActivity extends AppCompatActivity {
                 filter(s.toString());
             }
         });
+
     }
 
+    @Override
+    //refer activity lifecycle https://developer.android.com/guide/components/activities/activity-lifecycle
+    protected void onResume() {
+        handler.postDelayed(runnable = new Runnable() {
+            public void run() {
+                handler.postDelayed(runnable, delay);
+                System.out.println("Every 10 secs");
+                onReloadPressed();
+            }
+        }, delay);
+        super.onResume();
+    }
+
+    @Override
+    //stop handler when activity not visible (shifted to visualisation activity) super.onPause();
+    protected void onPause() {
+        super.onPause();
+        handler.removeCallbacks(runnable);
+    }
+
+    //filters the Recycler View
+    //After text changed in search bar, creates a new ArrayList containing only matching Coin Names or Symbols
     private void filter(String text){
         ArrayList<CurrencyModal> filteredList = new ArrayList<>();
         for (CurrencyModal item: currencyModalArrayList){
@@ -129,12 +151,14 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    //Code for functioning of the Reload button in the Super Menu
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.super_menu, menu);
 
         return super.onCreateOptionsMenu(menu);
     }
+
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId()){
@@ -152,6 +176,8 @@ public class MainActivity extends AppCompatActivity {
         finish(); //finish Activity.
     }
 
+
+    //Calls the CoinMArketCapAPI and adds data to the CurrencyModalArrayList
     private void loadFirst30coins(int index){
         client = new OkHttpClient();
         request = new Request.Builder().url(

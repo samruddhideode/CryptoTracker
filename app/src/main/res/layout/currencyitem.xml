@@ -20,7 +20,7 @@
             android:padding="3dp"
             android:text=""
             android:textSize="23dp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/currencyRate"
@@ -30,15 +30,24 @@
             android:background="@color/white"
             android:padding="3dp"
             android:text=""
-            android:textSize="18dp"
-            android:textAlignment="center"/>
+            android:textAlignment="center"
+            android:textSize="18dp" />
 
+        <Button
+            android:id="@+id/setAlert"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/currencyRate"
+            android:layout_toRightOf="@id/currencyName"
+            android:text="Set alert"
+            />
 
         <TextView
             android:id="@+id/currencyName"
-            android:layout_width="match_parent"
+            android:layout_width="269dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/currencySymbol"
+            android:layout_marginTop="0dp"
             android:background="@color/white"
             android:padding="3dp"
             android:text=""

@@ -25,6 +25,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.cryptotracker.Model.CurrencyModal;
 import com.github.mikephil.charting.charts.CandleStickChart;
 import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
@@ -34,6 +35,8 @@ import com.github.mikephil.charting.data.CandleEntry;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.formatter.IAxisValueFormatter;
+import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 import com.github.mikephil.charting.interfaces.datasets.ICandleDataSet;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import com.google.gson.Gson;
@@ -45,6 +48,7 @@ import java.io.IOException;
 import java.lang.reflect.Array;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 public class Visualization extends AppCompatActivity {
     private CandleStickChart candleStickChart;
@@ -130,14 +134,6 @@ public class Visualization extends AppCompatActivity {
                     ArrayList<String> xvalue = new ArrayList<String>();
                     ArrayList<CandleEntry> yvalue = new ArrayList<CandleEntry>();
                     for (int i=0; i<dataSet.size(); i++) {
-                        //code to convert unix timestamp to day date time
-                        long unix_seconds = dataSet.get(i).get(0);
-                        Date date = new Date(unix_seconds);
-                        String[] splitted = date.toString().split("\\s+");//split by space  Wed Dec 09 09:30:00 GMT+05:30 2020
-
-                        //dates on x axis
-                        xvalue.add(splitted[2] + splitted[1] + splitted[5]);
-                        //data on y axis
                         yvalue.add(new CandleEntry(i, dataSet.get(i).get(2), dataSet.get(i).get(3), dataSet.get(i).get(1), dataSet.get(i).get(4)));
                     }
 
