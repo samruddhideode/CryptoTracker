@@ -70,7 +70,7 @@
             android:layout_below="@id/currencyName"
             android:layout_marginLeft="7dp"
             android:text=""
-            android:textAlignment="center"/>
+            android:textAlignment="center" />
 
         <TextView
             android:id="@+id/textView2"

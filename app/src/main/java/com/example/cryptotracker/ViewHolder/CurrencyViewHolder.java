@@ -1,4 +1,4 @@
-package com.example.cryptotracker;
+package com.example.cryptotracker.ViewHolder;
 
 import android.content.Intent;
 import android.view.View;
@@ -10,9 +10,10 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.cryptotracker.R;
+
 public class CurrencyViewHolder extends RecyclerView.ViewHolder {
     public TextView currencyName,currencySymbol, currencyRate, oneHour, twentyfourHours, sevenDays;
-    public long lower_limit;
     public Button setAlert;
     public CurrencyViewHolder(@NonNull View itemView) {
         super(itemView);

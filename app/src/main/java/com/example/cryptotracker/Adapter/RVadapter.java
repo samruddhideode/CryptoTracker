@@ -3,22 +3,18 @@ package com.example.cryptotracker.Adapter;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.cryptotracker.CurrencyViewHolder;
+import com.example.cryptotracker.ViewHolder.CurrencyViewHolder;
 import com.example.cryptotracker.Interface.ILoadMore;
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.io.Serializable;
 import java.lang.*;
 import androidx.annotation.NonNull;
 
-import com.example.cryptotracker.MainActivity;
 import com.example.cryptotracker.Model.CurrencyModal;
 import com.example.cryptotracker.R;
 import com.example.cryptotracker.SetAlert;

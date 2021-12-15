@@ -64,4 +64,17 @@ public class DBHandler extends SQLiteOpenHelper {
         return ll;
     }
 
+    public Cursor showAll(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("SELECT * FROM " +TABLE+";",
+                null);
+        return res;
+    }
+
+    public boolean deleteData(String cnumber){
+        SQLiteDatabase db = this.getWritableDatabase();
+        int rows = db.delete(TABLE,"cnumber=?", new String[]{cnumber});
+        if(rows>0) return true;
+        else return false;
+    }
 }

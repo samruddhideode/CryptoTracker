@@ -1,11 +1,18 @@
-package com.example.cryptotracker;
+package com.example.cryptotracker.Activites;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
@@ -20,9 +27,11 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.example.cryptotracker.Adapter.RVadapter;
+import com.example.cryptotracker.DBHandler;
 import com.example.cryptotracker.Interface.ILoadMore;
 import com.example.cryptotracker.Model.CurrencyModal;
 
+import com.example.cryptotracker.R;
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -45,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
     private Button trendButton;
     private EditText search_bar;
     DBHandler myDB;
+    private Button alertsButton;
 
     Handler handler = new Handler();
     Runnable runnable;
@@ -98,6 +108,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable s) {
                 filter(s.toString());
+            }
+        });
+
+
+        //takes you to all alerts view
+        alertsButton = findViewById(R.id.alertsButton);
+        alertsButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent alertPage = new Intent(MainActivity.this, AllAlerts.class);
+                startActivity(alertPage);
             }
         });
     }
@@ -190,6 +210,7 @@ public class MainActivity extends AppCompatActivity {
                 Data data1 = gson.fromJson(body, Data.class);
                 final ArrayList<CurrencyModal> newCurrencyModalArrayList = data1.data;
                 runOnUiThread(new Runnable() {
+                    @SuppressLint("NewApi")
                     @Override
                     public void run() {
                         currencyModalArrayList.addAll(newCurrencyModalArrayList);
@@ -203,7 +224,8 @@ public class MainActivity extends AppCompatActivity {
                             double limit = myDB.getLimit(name);
                             //System.out.println("Coin: "+name+" price: "+price+" limit: "+limit);
                             if(limit!=-1 && limit>=price){
-                                System.out.println("***ALERT***");
+                                System.out.println("***ALERT***"+name+" "+price+" "+limit);
+                                sendNotification(name,price,limit);
                             }
                         }
                     }
@@ -212,9 +234,27 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(@NonNull Call call, @NonNull IOException e) {
-                Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                System.out.println(e.getMessage());
             }
         });
     }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public void sendNotification(String name, double price, double limit){
+        if(Build.VERSION.SDK_INT>= Build.VERSION_CODES.O){
+            NotificationChannel channel=new NotificationChannel("mynotif","My Notification", NotificationManager.IMPORTANCE_DEFAULT);
+            NotificationManager manager=getSystemService(NotificationManager.class);
+            manager.createNotificationChannel(channel);
+        }
+        String msg=name.toUpperCase()+" PRICE DROPPED LOWER THAN "+limit;
+        NotificationCompat.Builder builder=new NotificationCompat.Builder(MainActivity.this, "mynotif");
+        builder.setContentTitle("PRICE DROPPED");
+        builder.setContentText(msg);
+        builder.setSmallIcon(R.drawable.ic_launcher_foreground);
+        builder.setAutoCancel(true);
+        NotificationManagerCompat managerCompat=NotificationManagerCompat.from(MainActivity.this);
+        managerCompat.notify(1,builder.build());
+    }
+
 
 }

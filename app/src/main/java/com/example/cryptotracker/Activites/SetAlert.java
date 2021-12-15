@@ -1,10 +1,7 @@
 package com.example.cryptotracker;
 
-import java.io.*;
-import java.util.*;
 import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.cryptotracker.Activites.MainActivity;
 import com.example.cryptotracker.Model.CurrencyModal;
 
 import java.util.ArrayList;

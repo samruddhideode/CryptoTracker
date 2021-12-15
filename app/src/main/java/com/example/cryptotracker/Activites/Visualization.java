@@ -1,9 +1,5 @@
-package com.example.cryptotracker;
+package com.example.cryptotracker.Activites;
 
-import java.util.*;
-import java.text.*;
-
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.*;
@@ -22,33 +18,20 @@ import okhttp3.Response;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.cryptotracker.Model.CurrencyModal;
+import com.example.cryptotracker.R;
 import com.github.mikephil.charting.charts.CandleStickChart;
-import com.github.mikephil.charting.charts.LineChart;
-import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.CandleData;
 import com.github.mikephil.charting.data.CandleDataSet;
 import com.github.mikephil.charting.data.CandleEntry;
-import com.github.mikephil.charting.data.Entry;
-import com.github.mikephil.charting.data.LineData;
-import com.github.mikephil.charting.data.LineDataSet;
-import com.github.mikephil.charting.formatter.IAxisValueFormatter;
-import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
-import com.github.mikephil.charting.interfaces.datasets.ICandleDataSet;
-import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
-import com.google.gson.Gson;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.concurrent.TimeUnit;
 
 public class Visualization extends AppCompatActivity {
     private CandleStickChart candleStickChart;
