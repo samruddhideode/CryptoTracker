@@ -85,6 +85,7 @@ public class RVadapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
         holderItem.twentyfourHours.setText(String.valueOf(currencyModal.getQuote().getUSD().getChange24h())+" %");
         holderItem.sevenDays.setText(String.valueOf(currencyModal.getQuote().getUSD().getChange7d())+" %");
 
+        //button
         holderItem.setAlert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

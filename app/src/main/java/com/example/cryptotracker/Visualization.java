@@ -129,6 +129,23 @@ public class Visualization extends AppCompatActivity {
                     candleStickChart.setHighlightPerDragEnabled(true);
                     candleStickChart.setDrawBorders(true);
                     candleStickChart.setBorderColor(getResources().getColor(R.color.purple_700));
+                    String time_text;
+                    switch(time){
+                        case "1day":
+                            time_text= "365 days";
+                            candleStickChart.getDescription().setText("Variation of "+coin+" price over "+ time);
+                            break;
+
+                        case "1h":
+                            time_text = "1500 hrs";
+                            candleStickChart.getDescription().setText("Variation of "+coin+" price over "+ time);
+                            break;
+
+                        case "1m":
+                            time_text = "1500 mins";
+                            candleStickChart.getDescription().setText("Variation of "+coin+" price over "+ time);
+                            break;
+                    }
 
                     //setting data
                     ArrayList<String> xvalue = new ArrayList<String>();

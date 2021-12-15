@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private Button trendButton;
     private EditText search_bar;
+    DBHandler myDB;
 
     Handler handler = new Handler();
     Runnable runnable;
