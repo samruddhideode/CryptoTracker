@@ -2,6 +2,9 @@ package com.example.cryptotracker.Model;
 
 import static java.sql.Types.NULL;
 
+import com.example.cryptotracker.DBHandler;
+import com.example.cryptotracker.SetAlert;
+
 import java.io.Serializable;
 import java.text.DecimalFormat;
 
@@ -75,7 +78,8 @@ public class CurrencyModal implements Serializable {
         this.symbol = currencySymbol;
     }
 
-    public double getLowerLimit() { return low_limit; }
+    public double getLowerLimit() {
+        return low_limit; }
 
     public void setLowerLimit(double lower_limit) {
         this.low_limit = lower_limit;
@@ -97,7 +101,8 @@ public class CurrencyModal implements Serializable {
         this.symbol = currencySymbol;
     }
 
-    public double getLow_limit() { return low_limit; }
+    public double getLow_limit() {
+        return low_limit; }
 
     public void setLow_limit(double low_limit) { this.low_limit = low_limit; }
 

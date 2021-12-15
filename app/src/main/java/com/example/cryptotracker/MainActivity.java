@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
     Handler handler = new Handler();
     Runnable runnable;
-    int delay = 60000;
+    int delay = 15*60000; //every 15 min
 
     Request request;
     RelativeLayout relativeLayout;
@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        myDB = new DBHandler(this);
         //Explicit intent
         //Takes you to sister activity- Visualisation
         trendButton = findViewById(R.id.trendsButton);
@@ -99,7 +100,6 @@ public class MainActivity extends AppCompatActivity {
                 filter(s.toString());
             }
         });
-
     }
 
     @Override
@@ -108,7 +108,6 @@ public class MainActivity extends AppCompatActivity {
         handler.postDelayed(runnable = new Runnable() {
             public void run() {
                 handler.postDelayed(runnable, delay);
-                System.out.println("Every 10 secs");
                 onReloadPressed();
             }
         }, delay);
@@ -159,7 +158,6 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onCreateOptionsMenu(menu);
     }
-
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId()){
@@ -169,9 +167,8 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
+    //reload main activity
     public void onReloadPressed(){
-    //reload code here
         Intent refresh = new Intent(this, MainActivity.class);
         startActivity(refresh);//Start the same Activity
         finish(); //finish Activity.
@@ -198,6 +195,17 @@ public class MainActivity extends AppCompatActivity {
                         currencyModalArrayList.addAll(newCurrencyModalArrayList);
                         adapter.setLoaded();
                         adapter.updateData(newCurrencyModalArrayList);
+
+                        //send notification if price goes below your alert
+                        for(int coin = 0; coin<newCurrencyModalArrayList.size(); coin++){
+                            String name = newCurrencyModalArrayList.get(coin).getCurrencyName();
+                            double price = newCurrencyModalArrayList.get(coin).getQuote().getUSD().getPrice();
+                            double limit = myDB.getLimit(name);
+                            //System.out.println("Coin: "+name+" price: "+price+" limit: "+limit);
+                            if(limit!=-1 && limit>=price){
+                                System.out.println("***ALERT***");
+                            }
+                        }
                     }
                 });
             }

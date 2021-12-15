@@ -72,7 +72,6 @@ public class SetAlert extends AppCompatActivity {
                         else Toast.makeText(SetAlert.this,"Error", Toast.LENGTH_SHORT).show();
                     }
                     try {
-                        System.out.println("database: "+myDB.getData("Binance Coin"));
                         Toast.makeText(context, text, duration).show();
                         Thread.sleep(2000);
                         Intent explicit = new Intent(SetAlert.this, MainActivity.class);
@@ -84,5 +83,6 @@ public class SetAlert extends AppCompatActivity {
                 }
             }
         });
+
     }
 }

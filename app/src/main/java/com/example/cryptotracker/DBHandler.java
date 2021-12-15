@@ -1,5 +1,7 @@
 package com.example.cryptotracker;
 
+import static java.sql.Types.NULL;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -24,7 +26,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREATE_TABLE = "CREATE TABLE " + TABLE + "( ID INTEGER PRIMARY KEY AUTOINCREMENT, " + COL1 + " varchar(255)," + COL2 + " varchar(255) );";
+        String CREATE_TABLE = "CREATE TABLE " + TABLE + "( ID INTEGER PRIMARY KEY AUTOINCREMENT, " + COL1 + " varchar(255)," + COL2 + " DOUBLE );";
         db.execSQL(CREATE_TABLE);
     }
 
@@ -38,7 +40,7 @@ public class DBHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COL1, name);
-        values.put(COL2, String.valueOf(llimit));
+        values.put(COL2, llimit);
         System.out.println(values);
         long row = db.insert(TABLE, null, values);
         if (row == -1)
@@ -47,17 +49,19 @@ public class DBHandler extends SQLiteOpenHelper {
             return true;
     }
 
-    public ArrayList getData(String currencyName) {
+    public long getLimit(String currencyName) {
         SQLiteDatabase db = this.getWritableDatabase();
+        long ll = NULL;
         Cursor res = db.rawQuery("SELECT * FROM " + TABLE +
                         " WHERE " + COL1 + "=" + "'" + currencyName + "'",null);
         ArrayList<String> arrayList = new ArrayList<>();
         while (res.moveToNext()) {
-            arrayList.add(res.getString(0));
-            arrayList.add(res.getString(1));
-            arrayList.add(String.valueOf(res.getLong(2)));
+            ll = res.getLong(2);
         }
-        return arrayList;
+        if(res.getCount()<=0){
+            return -1;
+        }
+        return ll;
     }
 
 }
