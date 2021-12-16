@@ -9,11 +9,11 @@ import com.example.cryptotracker.R;
 
 import org.w3c.dom.Text;
 
-public class AlertViewHolder<textView> extends RecyclerView.ViewHolder{
-    public TextView price, name, limit;
+public class AlertViewHolder extends RecyclerView.ViewHolder{
+    public TextView name;
+    public TextView limit;
     public AlertViewHolder(@NonNull View itemView) {
         super(itemView);
-        price = (TextView) itemView.findViewById(R.id.price);
         name = (TextView) itemView.findViewById(R.id.name);
         limit = (TextView) itemView.findViewById(R.id.limit);
     }

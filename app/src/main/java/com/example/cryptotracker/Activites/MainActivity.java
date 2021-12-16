@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
     DBHandler myDB;
     private Button alertsButton;
 
+
     Handler handler = new Handler();
     Runnable runnable;
     int delay = 15*60000; //every 15 min

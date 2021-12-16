@@ -14,20 +14,21 @@
 
         <TextView
             android:id="@+id/name"
-            android:layout_width="250dp"
+            android:layout_width="124dp"
             android:layout_height="wrap_content"
-            android:text="Bitcoin"
+            android:padding="8dp"
+            android:text=""
             android:textSize="23dp"
-            android:textStyle="bold"
-            android:padding="8dp"/>
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/TVLimit"
-            android:layout_width="150dp"
+            android:layout_width="152dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="-2dp"
             android:layout_toRightOf="@+id/name"
             android:padding="8dp"
-            android:text="LIMIT"
+            android:text=""
             android:textAlignment="center"
             android:textSize="23dp"
             android:textStyle="bold" />
@@ -36,10 +37,9 @@
             android:id="@+id/limit"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_below="@id/TVLimit"
-            android:layout_toRightOf="@+id/name"
+            android:layout_toRightOf="@+id/TVLimit"
             android:padding="8dp"
-            android:text="5000"
+            android:text=""
             android:textAlignment="center"
             android:textColor="@color/design_default_color_error"
             android:textSize="23dp"
@@ -48,32 +48,10 @@
         <TextView
             android:layout_width="40dp"
             android:layout_height="45dp"
-            android:layout_below="@id/TVLimit"
             android:layout_alignStart="@id/limit"
             android:padding="8dp"
             android:text="$"
             android:textColor="@color/design_default_color_error"
-            android:textSize="23dp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/price"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:layout_below="@id/name"
-            android:padding="8dp"
-            android:textSize="23dp"
-            android:textStyle="bold"
-            android:text="5560.28"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="45dp"
-            android:layout_alignStart="@id/price"
-            android:layout_below="@id/name"
-            android:padding="8dp"
-            android:text="$"
             android:textSize="23dp"
             android:textStyle="bold" />
 

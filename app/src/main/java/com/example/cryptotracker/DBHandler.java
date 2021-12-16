@@ -71,9 +71,9 @@ public class DBHandler extends SQLiteOpenHelper {
         return res;
     }
 
-    public boolean deleteData(String cnumber){
+    public boolean deleteData(String name){
         SQLiteDatabase db = this.getWritableDatabase();
-        int rows = db.delete(TABLE,"cnumber=?", new String[]{cnumber});
+        int rows = db.delete(TABLE,"name=?", new String[]{name});
         if(rows>0) return true;
         else return false;
     }

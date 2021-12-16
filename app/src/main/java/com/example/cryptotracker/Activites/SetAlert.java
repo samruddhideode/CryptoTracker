@@ -1,8 +1,9 @@
-package com.example.cryptotracker;
+package com.example.cryptotracker.Activites;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -10,8 +11,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.cryptotracker.Activites.MainActivity;
+import com.example.cryptotracker.DBHandler;
 import com.example.cryptotracker.Model.CurrencyModal;
+import com.example.cryptotracker.R;
 
 import java.util.ArrayList;
 
@@ -35,6 +37,14 @@ public class SetAlert extends AppCompatActivity {
 
         CurrencyModal currencyModal = (CurrencyModal) exp.getSerializableExtra("currency_modal");
         System.out.println(currencyModal.getCurrencyName());
+
+//        DisplayMetrics dm = new DisplayMetrics();
+//        getWindowManager().getDefaultDisplay().getMetrics(dm);
+//
+//        int width = dm.widthPixels;
+//        int height = dm.heightPixels;
+//
+//        getWindow().setLayout((int)(width*.8),(int)(height*.3));
 
         setAlert = findViewById(R.id.go);
         getLL = findViewById(R.id.getLowerLimit);
@@ -65,9 +75,9 @@ public class SetAlert extends AppCompatActivity {
                         currencyModal.setLowerLimit(lower_limit);
                         text = "You will be alerted when "+ currencyModal.getCurrencySymbol()+" price drops lower than "+ Double.toString(lower_limit);
                         boolean row = myDB.insertData(currencyModal.getCurrencyName(),lower_limit);
-                        if(row)
-                            Toast.makeText(SetAlert.this,"Data Inserted", Toast.LENGTH_SHORT).show();
-                        else Toast.makeText(SetAlert.this,"Error", Toast.LENGTH_SHORT).show();
+//                        if(row)
+////                            Toast.makeText(SetAlert.this,"", Toast.LENGTH_SHORT).show();
+//                        else Toast.makeText(SetAlert.this,"Error", Toast.LENGTH_SHORT).show();
                     }
                     try {
                         Toast.makeText(context, text, duration).show();

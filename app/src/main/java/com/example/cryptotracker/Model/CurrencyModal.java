@@ -2,9 +2,6 @@ package com.example.cryptotracker.Model;
 
 import static java.sql.Types.NULL;
 
-import com.example.cryptotracker.DBHandler;
-import com.example.cryptotracker.SetAlert;
-
 import java.io.Serializable;
 import java.text.DecimalFormat;
 

@@ -17,7 +17,7 @@ import androidx.annotation.NonNull;
 
 import com.example.cryptotracker.Model.CurrencyModal;
 import com.example.cryptotracker.R;
-import com.example.cryptotracker.SetAlert;
+import com.example.cryptotracker.Activites.SetAlert;
 
 import java.util.ArrayList;
 

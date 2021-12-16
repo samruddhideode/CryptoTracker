@@ -19,7 +19,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activites.Visualization" ></activity>
-        <activity android:name=".SetAlert" ></activity>
+        <activity android:name=".Activites.SetAlert"/>
+        <activity android:name=".Activites.AllAlerts" ></activity>
     </application>
 
 </manifest>
