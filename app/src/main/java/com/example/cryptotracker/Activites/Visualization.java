@@ -99,7 +99,7 @@ public class Visualization extends AppCompatActivity {
                     candleStickChart.requestDisallowInterceptTouchEvent(true);
 
                     XAxis xAxis = candleStickChart.getXAxis();
-                    xAxis.setDrawGridLines(true);// disable x axis grid lines
+                    xAxis.setDrawGridLines(false);// disable x axis grid lines
                     xAxis.setDrawLabels(true);
                     rightAxis.setTextColor(Color.BLACK);
                     yAxis.setDrawLabels(false);
@@ -108,7 +108,7 @@ public class Visualization extends AppCompatActivity {
                     xAxis.setAvoidFirstLastClipping(true);
 
                     Legend l = candleStickChart.getLegend();
-                    l.setEnabled(true);
+                    l.setEnabled(false);
                     candleStickChart.setHighlightPerDragEnabled(true);
                     candleStickChart.setDrawBorders(true);
                     candleStickChart.setBorderColor(getResources().getColor(R.color.purple_700));
@@ -142,7 +142,7 @@ public class Visualization extends AppCompatActivity {
                         set1.setColor(Color.rgb(80, 80, 80));
                         set1.setShadowColor(getResources().getColor(R.color.purple_200));
                         set1.setShadowWidth(0.8f);
-                        set1.setDecreasingColor(getResources().getColor(R.color.purple_500));
+                        set1.setDecreasingColor(getResources().getColor(R.color.red));
                         set1.setDecreasingPaintStyle(Paint.Style.FILL);
                         set1.setIncreasingColor(getResources().getColor(R.color.purple_700));
                         set1.setIncreasingPaintStyle(Paint.Style.FILL);
@@ -164,7 +164,7 @@ public class Visualization extends AppCompatActivity {
 
             @Override
             public void onFailure(@NonNull Call call, @NonNull IOException e) {
-                Toast.makeText(Visualization.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast. makeText(Visualization.this, e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }

@@ -33,13 +33,22 @@
             android:textAlignment="center"
             android:textSize="18dp" />
 
-        <Button
+<!--        <Button-->
+<!--            android:id="@+id/setAlert"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@id/currencyRate"-->
+<!--            android:layout_toRightOf="@id/currencyName"-->
+<!--            android:text="Set alert" />-->
+
+        <ImageButton
             android:id="@+id/setAlert"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/currencyRate"
-            android:layout_toRightOf="@id/currencyName"
-            android:text="Set alert" />
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="25dp"
+            app:srcCompat="@android:drawable/ic_popup_reminder" />
 
         <TextView
             android:id="@+id/currencyName"

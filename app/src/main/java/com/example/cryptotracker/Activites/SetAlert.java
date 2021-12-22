@@ -38,14 +38,6 @@ public class SetAlert extends AppCompatActivity {
         CurrencyModal currencyModal = (CurrencyModal) exp.getSerializableExtra("currency_modal");
         System.out.println(currencyModal.getCurrencyName());
 
-//        DisplayMetrics dm = new DisplayMetrics();
-//        getWindowManager().getDefaultDisplay().getMetrics(dm);
-//
-//        int width = dm.widthPixels;
-//        int height = dm.heightPixels;
-//
-//        getWindow().setLayout((int)(width*.8),(int)(height*.3));
-
         setAlert = findViewById(R.id.go);
         getLL = findViewById(R.id.getLowerLimit);
 
