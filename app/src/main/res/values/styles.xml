@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="AppTheme" parent ="Theme.AppCompat.Light.DarkActionBar">
-
-    </style>
-    <style name="AppTheme.CustomTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme" parent ="Theme.AppCompat.DayNight.DarkActionBar">
         <item name="android:windowCloseOnTouchOutside">true</item>
+        <item name="colorPrimary">@color/black_shade_1</item>
+        <item name="colorPrimaryDark">@color/black_shade_1</item>
+    </style>
+    <style name="AppTheme.CustomTheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
+
     </style>
 </resources>
