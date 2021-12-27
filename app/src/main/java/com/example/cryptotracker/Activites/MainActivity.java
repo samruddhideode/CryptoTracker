@@ -3,6 +3,7 @@ package com.example.cryptotracker.Activites;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -22,8 +23,10 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import com.example.cryptotracker.Adapter.RVadapter;
@@ -55,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText search_bar;
     DBHandler myDB;
     private Button alertsButton;
+    public Switch mode ;
 
 
     Handler handler = new Handler();
@@ -70,7 +74,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         myDB = new DBHandler(this);
+
         //Explicit intent
         //Takes you to sister activity- Visualisation
         trendButton = findViewById(R.id.trendsButton);
@@ -112,7 +118,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
         //takes you to all alerts view
         alertsButton = findViewById(R.id.alertsButton);
         alertsButton.setOnClickListener(new View.OnClickListener() {
@@ -142,7 +147,51 @@ public class MainActivity extends AppCompatActivity {
         handler.removeCallbacks(runnable);
     }
 
-    //filters the Recycler View
+    //ACTION BAR
+    //Code for functioning of the Reload button and change mode button in the Super Menu
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.super_menu, menu);
+
+        MenuItem itemswitch = menu.findItem(R.id.mode);
+        itemswitch.setActionView(R.layout.use_switch);
+
+        Switch mode = (Switch) menu.findItem(R.id.mode).getActionView().findViewById(R.id.switch2);
+        mode.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked){
+                    System.out.println("CHecked1");
+                    getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                }
+                else{
+                    System.out.println("unChecked1");
+                    getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                }
+            }
+        });
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch(item.getItemId()){
+            case R.id.menu_reload:
+                onReloadPressed();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    //reload main activity
+    public void onReloadPressed(){
+        Intent refresh = new Intent(this, MainActivity.class);
+        startActivity(refresh);//Start the same Activity
+        finish(); //finish Activity.
+    }
+
+    //SEARCH BAR
     //After text changed in search bar, creates a new ArrayList containing only matching Coin Names or Symbols
     private void filter(String text){
         ArrayList<CurrencyModal> filteredList = new ArrayList<>();
@@ -172,30 +221,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    //Code for functioning of the Reload button in the Super Menu
-    public boolean onCreateOptionsMenu(Menu menu){
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.super_menu, menu);
-
-        return super.onCreateOptionsMenu(menu);
-    }
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch(item.getItemId()){
-            case R.id.menu_reload:
-                onReloadPressed();
-                break;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-    //reload main activity
-    public void onReloadPressed(){
-        Intent refresh = new Intent(this, MainActivity.class);
-        startActivity(refresh);//Start the same Activity
-        finish(); //finish Activity.
-    }
-
-
+    //CRYPTO DATA LOADER
     //Calls the CoinMArketCapAPI and adds data to the CurrencyModalArrayList
     private void loadFirst30coins(int index){
         client = new OkHttpClient();
@@ -214,6 +240,7 @@ public class MainActivity extends AppCompatActivity {
                     @SuppressLint("NewApi")
                     @Override
                     public void run() {
+                        //newCurrencyModalArrayList.get(2).setCurrencySymbol("BB");
                         currencyModalArrayList.addAll(newCurrencyModalArrayList);
                         adapter.setLoaded();
                         adapter.updateData(newCurrencyModalArrayList);
@@ -240,6 +267,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    //NOTIFICATION
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void sendNotification(String name, double price, double limit){
         if(Build.VERSION.SDK_INT>= Build.VERSION_CODES.O){
@@ -247,9 +275,9 @@ public class MainActivity extends AppCompatActivity {
             NotificationManager manager=getSystemService(NotificationManager.class);
             manager.createNotificationChannel(channel);
         }
-        String msg=name.toUpperCase()+" PRICE DROPPED LOWER THAN "+limit;
+        String msg=name.toUpperCase()+" Price dropped lower than "+limit;
         NotificationCompat.Builder builder=new NotificationCompat.Builder(MainActivity.this, "mynotif");
-        builder.setContentTitle("PRICE DROPPED");
+        builder.setContentTitle("PRICE DROPPED!!!");
         builder.setContentText(msg);
         builder.setSmallIcon(R.drawable.ic_launcher_foreground);
         builder.setAutoCancel(true);

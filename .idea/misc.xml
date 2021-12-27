@@ -9,7 +9,6 @@
         <entry key="..\:/Users/Dell/AndroidStudioProjects/Cryptotracker/app/src/main/res/drawable/ic_launcher_alert.xml" value="0.2703125" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/Cryptotracker/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/Cryptotracker/app/src/main/res/layout/activity_main.xml" value="0.264" />
-        <entry key="..\:/Users/Dell/AndroidStudioProjects/Cryptotracker/app/src/main/res/layout/activity_splash_screen.xml" value="0.24010416666666667" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/Cryptotracker/app/src/main/res/layout/alertitem.xml" value="0.4" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/Cryptotracker/app/src/main/res/layout/all_alerts.xml" value="0.23333333333333334" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/Cryptotracker/app/src/main/res/layout/currencyitem.xml" value="0.4" />
@@ -17,11 +16,26 @@
         <entry key="..\:/Users/Dell/AndroidStudioProjects/Cryptotracker/app/src/main/res/layout/set_alert.xml" value="0.264" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/Cryptotracker/app/src/main/res/layout/visualization.xml" value="0.264" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/Cryptotracker/app/src/main/res/menu/super_menu.xml" value="0.2" />
-        <entry key="..\:/Users/Dell/AndroidStudioProjects/Cryptotracker/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2703125" />
-        <entry key="..\:/Users/Dell/AndroidStudioProjects/Cryptotracker/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2703125" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/Cryptotracker2/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/Cryptotracker2/app/src/main/res/layout/currencyitem.xml" value="0.4" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/Cryptotracker2/app/src/main/res/layout/visualization.xml" value="0.24010416666666667" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/Cryptotracker_AndroidApp/app/src/main/res/layout/action_switch.xml" value="0.22239583333333332" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/Cryptotracker_AndroidApp/app/src/main/res/layout/activity_main.xml" value="0.22239583333333332" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/Cryptotracker_AndroidApp/app/src/main/res/layout/activity_splash_screen.xml" value="0.22239583333333332" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/Cryptotracker_AndroidApp/app/src/main/res/layout/all_alerts.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/Cryptotracker_AndroidApp/app/src/main/res/layout/currencyitem.xml" value="0.4" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/Cryptotracker_AndroidApp/app/src/main/res/layout/set_alert.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/Cryptotracker_AndroidApp/app/src/main/res/layout/use_switch.xml" value="0.264" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/Cryptotracker_AndroidApp/app/src/main/res/layout/visualization.xml" value="0.4" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/Cryptotracker_AndroidApp/app/src/main/res/menu/super_menu.xml" value="0.22239583333333332" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/Cryptotracker_AndroidApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2703125" />
+        <entry key="..\:/Users/manojmd/AndroidStudioProjects/CryptoTracker/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/manojmd/AndroidStudioProjects/CryptoTracker/app/src/main/res/layout/activity_splash_screen.xml" value="0.165625" />
+        <entry key="..\:/Users/manojmd/AndroidStudioProjects/CryptoTracker/app/src/main/res/layout/alertitem.xml" value="0.1796875" />
+        <entry key="..\:/Users/manojmd/AndroidStudioProjects/CryptoTracker/app/src/main/res/layout/all_alerts.xml" value="0.1796875" />
+        <entry key="..\:/Users/manojmd/AndroidStudioProjects/CryptoTracker/app/src/main/res/layout/currencyitem.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/manojmd/AndroidStudioProjects/CryptoTracker/app/src/main/res/layout/set_alert.xml" value="0.1796875" />
+        <entry key="..\:/Users/manojmd/AndroidStudioProjects/CryptoTracker/app/src/main/res/layout/visualization.xml" value="0.1796875" />
       </map>
     </option>
   </component>

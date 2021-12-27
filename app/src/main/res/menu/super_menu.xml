@@ -7,4 +7,11 @@
         app:showAsAction="always"
         android:icon="@drawable/ic_baseline_refresh_24"
         android:title="Item" />
+
+    <item
+        android:id="@+id/mode"
+        android:title="Switch"
+        app:actionLayout="@layout/use_switch"
+        app:showAsAction="always" />
+
 </menu>

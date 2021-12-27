@@ -2,8 +2,8 @@
 <resources>
     <style name="AppTheme" parent ="Theme.AppCompat.DayNight.DarkActionBar">
         <item name="android:windowCloseOnTouchOutside">true</item>
-        <item name="colorPrimary">@color/black_shade_1</item>
-        <item name="colorPrimaryDark">@color/black_shade_1</item>
+        <item name="colorPrimary">@color/black_shade_2</item>
+        <item name="colorPrimaryDark">@color/black_shade_3</item>
     </style>
     <style name="AppTheme.CustomTheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
 

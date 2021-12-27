@@ -92,11 +92,11 @@ public class RVadapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
             }
         });
         holderItem.oneHour.setTextColor(String.valueOf(currencyModal.getQuote().getUSD().getChange1h()).contains("-")?
-                Color.parseColor("#FF0000"):Color.parseColor("#32CD32"));
+                Color.parseColor("#FF0940"):Color.parseColor("#389D20"));
         holderItem.twentyfourHours.setTextColor(String.valueOf(currencyModal.getQuote().getUSD().getChange24h()).contains("-")?
-                Color.parseColor("#FF0000"):Color.parseColor("#32CD32"));
+                Color.parseColor("#FF0940"):Color.parseColor("#389D20"));
         holderItem.sevenDays.setTextColor(String.valueOf(currencyModal.getQuote().getUSD().getChange7d()).contains("-")?
-                Color.parseColor("#FF0000"):Color.parseColor("#32CD32"));
+                Color.parseColor("#FF0940"):Color.parseColor("#389D20"));
     }
 
     @Override

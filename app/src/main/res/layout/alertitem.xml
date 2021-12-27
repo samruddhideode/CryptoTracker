@@ -4,6 +4,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
     android:layout_margin="7dp"
     app:cardCornerRadius="10dp">
 
@@ -18,6 +19,7 @@
             android:layout_height="wrap_content"
             android:padding="8dp"
             android:text=""
+            android:textColor="@color/black_shade_2"
             android:textSize="23dp"
             android:textStyle="bold" />
 
@@ -25,11 +27,12 @@
             android:id="@+id/TVLimit"
             android:layout_width="152dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="-2dp"
+            android:layout_marginLeft="-26dp"
             android:layout_toRightOf="@+id/name"
             android:padding="8dp"
             android:text=""
             android:textAlignment="center"
+            android:textColor="@color/white"
             android:textSize="23dp"
             android:textStyle="bold" />
 
@@ -41,7 +44,7 @@
             android:padding="8dp"
             android:text=""
             android:textAlignment="center"
-            android:textColor="@color/design_default_color_error"
+            android:textColor="@color/black"
             android:textSize="23dp"
             android:textStyle="bold" />
 
@@ -49,9 +52,10 @@
             android:layout_width="40dp"
             android:layout_height="45dp"
             android:layout_alignStart="@id/limit"
+            android:layout_marginStart="-43dp"
             android:padding="8dp"
             android:text="$"
-            android:textColor="@color/design_default_color_error"
+            android:textColor="@color/black"
             android:textSize="23dp"
             android:textStyle="bold" />
 

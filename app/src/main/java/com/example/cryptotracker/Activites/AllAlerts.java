@@ -57,6 +57,7 @@ public class AllAlerts extends AppCompatActivity {
             deleteAlert(coin_name);
         }
     };
+
     public ArrayList getAllAlerts(){
         Cursor res = myDB.showAll();
         if(res.getCount()==0){

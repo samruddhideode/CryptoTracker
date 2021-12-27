@@ -20,12 +20,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.cryptotracker.R;
 import com.github.mikephil.charting.charts.CandleStickChart;
+import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.CandleData;
 import com.github.mikephil.charting.data.CandleDataSet;
 import com.github.mikephil.charting.data.CandleEntry;
+import com.github.mikephil.charting.formatter.IAxisValueFormatter;
+import com.github.mikephil.charting.formatter.ValueFormatter;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -94,11 +97,20 @@ public class Visualization extends AppCompatActivity {
                     //styling chart layout
                     YAxis yAxis = candleStickChart.getAxisLeft();
                     YAxis rightAxis = candleStickChart.getAxisRight();
+
+
+
                     yAxis.setDrawGridLines(false);
                     rightAxis.setDrawGridLines(false);
                     candleStickChart.requestDisallowInterceptTouchEvent(true);
 
                     XAxis xAxis = candleStickChart.getXAxis();
+                    xAxis.setValueFormatter(new ValueFormatter() {
+                        public String getFormattedValue(float value, AxisBase axis) {
+                            return "date"; // yVal is a string array
+                        }
+                    });
+
                     xAxis.setDrawGridLines(false);// disable x axis grid lines
                     xAxis.setDrawLabels(true);
                     rightAxis.setTextColor(Color.BLACK);
@@ -137,25 +149,25 @@ public class Visualization extends AppCompatActivity {
                         yvalue.add(new CandleEntry(i, dataSet.get(i).get(2), dataSet.get(i).get(3), dataSet.get(i).get(1), dataSet.get(i).get(4)));
                     }
 
-                        //styling data layout
-                        CandleDataSet set1 = new CandleDataSet(yvalue,"Dataset1");
-                        set1.setColor(Color.rgb(80, 80, 80));
-                        set1.setShadowColor(getResources().getColor(R.color.purple_200));
-                        set1.setShadowWidth(0.8f);
-                        set1.setDecreasingColor(getResources().getColor(R.color.red));
-                        set1.setDecreasingPaintStyle(Paint.Style.FILL);
-                        set1.setIncreasingColor(getResources().getColor(R.color.purple_700));
-                        set1.setIncreasingPaintStyle(Paint.Style.FILL);
-                        set1.setNeutralColor(Color.LTGRAY);
-                        set1.setDrawValues(false);
+                    //styling data layout
+                    CandleDataSet set1 = new CandleDataSet(yvalue,"");
+                    set1.setColor(Color.rgb(80, 80, 80));
+                    set1.setShadowColor(getResources().getColor(R.color.purple_200));
+                    set1.setShadowWidth(0.8f);
+                    set1.setDecreasingColor(getResources().getColor(R.color.red));
+                    set1.setDecreasingPaintStyle(Paint.Style.FILL);
+                    set1.setIncreasingColor(getResources().getColor(R.color.purple_700));
+                    set1.setIncreasingPaintStyle(Paint.Style.FILL);
+                    set1.setNeutralColor(Color.LTGRAY);
+                    set1.setDrawValues(false);
 
 
-                        //creating a data object with the dataset
-                        CandleData data = new CandleData(set1);
+                    //creating a data object with the dataset
+                    CandleData data = new CandleData(set1);
 
-                        //set data
-                        candleStickChart.setData(data);
-                        candleStickChart.invalidate();
+                    //set data
+                    candleStickChart.setData(data);
+                    candleStickChart.invalidate();
 
                 } catch (JSONException e) {
                     e.printStackTrace();
