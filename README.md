@@ -66,6 +66,7 @@ Card data is an object of the AlertModal Class and receives data from the lowerL
  
 </ul>
 
+[!flowchart](https://github.com/samruddhideode/CryptoTracker/blob/master/image.JPG)
 
 
 
