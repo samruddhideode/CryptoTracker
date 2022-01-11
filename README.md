@@ -1,5 +1,7 @@
-# CryptoTracker
+# CryptoTracker 
 This application aids in keeping  track of real-time prices of various currencies with visualisation and an alarm feature.  The Cryptocurrency analysis app uses the CoinMarketCap API to show you the timely prices and percentage change in the prices per hour, day, week. The application also provides a dynamic visualisation of the cryptocurrency prices per day, hour, minute using candlestick graphs using Gemini API. Additionally, the user can set an alert to receive a notification whenever the price of the chosen currency drops below the mentioned  value. 
+
+[Download APK](https://drive.google.com/file/d/1D61o_f6T_yoUZQhKX5raYCdjKrU9mSo4/view)
 
 <h4>Module wise Scope:</h4>  
 
